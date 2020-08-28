@@ -36,4 +36,5 @@ If you need inspiration, here are examples of what you can work on. If you work 
 
 
 Challenge Link: https://docs.google.com/document/d/1AZO0BZwn1Aogj4f3PDNe1mhq8pKsXZxtrG--EIbP_-w/edit#heading=h.31w9woubunro
+
 Apply Link: https://www.shopify.com/careers/developer-internships-data-science-internships-winter-2021-826aeb
