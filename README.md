@@ -31,7 +31,8 @@ There is a lot to be improved on here, you can polish the required features by c
 If you need inspiration, here are examples of what you can work on. If you work on these ideas, we recommend choosing only one or two.
 
 
-  Save nomination lists if the user leaves the page
+  Save no
+  mination lists if the user leaves the page
   Animations for loading, adding/deleting movies, notifications
   Create shareable links
 
