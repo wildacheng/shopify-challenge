@@ -14,6 +14,7 @@ Add a movie from the search results to our nomination list
 View the list of films already nominated
 Remove a nominee from the nomination list
 
+
 ## Technical requirements
 Search results should come from OMDB's API (free API key: http://www.omdbapi.com/apikey.aspx).
 Each search result should list at least its title, year of release and a button to nominate that film.
@@ -37,4 +38,4 @@ If you need inspiration, here are examples of what you can work on. If you work 
 
 [Challenge Link](https://docs.google.com/document/d/1AZO0BZwn1Aogj4f3PDNe1mhq8pKsXZxtrG--EIbP_-w/edit#heading=h.31w9woubunro)
 
-Apply Link: https://www.shopify.com/careers/developer-internships-data-science-internships-winter-2021-826aeb
+[Apply Link](https://www.shopify.com/careers/developer-internships-data-science-internships-winter-2021-826aeb)
