@@ -10,19 +10,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     margin: "0px",
   },
-  container: {
-    position: "absolute",
-    display: "flex",
-    justifyContent: "flex-end",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 1),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.85),
-    },
-    width: "50ch",
-    top: "45%",
-    height: "48px",
-  },
   search: {
     flexDirection: "column",
     display: "flex",
@@ -34,9 +21,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "large",
   },
   logo: {
-    position: "absolute",
-    top: "35%",
     color: "#ffffff",
+  },
+  searchContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "50%",
+    width: "100%",
   }
 }));
 
@@ -45,12 +38,9 @@ const HomePage = () => {
 
   return (
     <Grid container className={classes.grid}>
-      <Grid item xs={6} md={12} lg={12}>
-      <img
-        id="image"
-        src='https://wallpaperaccess.com/full/1597777.jpg'
-      />
-         <div className="search-container">
+      <Grid item xs={12} md={12} lg={12}>
+      <div id="image">
+         <div className={classes.searchContainer}>
          <Typography className={classes.logo} component="div">
           <Box fontWeight="fontWeightBold" fontSize="h3.fontSize">
             THE SHOPPIES
@@ -58,7 +48,7 @@ const HomePage = () => {
         </Typography>
          <SearchBar />
         </div>
-
+        </div>
       </Grid>
     </Grid>
   );

@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     margin: "0px",
   },
   container: {
-    position: "absolute",
     display: "flex",
     justifyContent: "flex-end",
     borderRadius: theme.shape.borderRadius,
@@ -19,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: fade(theme.palette.common.white, 0.85),
     },
     width: "50ch",
-    top: "45%",
     height: "48px",
   },
   search: {
