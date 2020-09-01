@@ -1,9 +1,8 @@
 import React from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Box } from "@material-ui/core";
+import { IconButton, InputBase } from "@material-ui/core";
+
 import SearchIcon from "@material-ui/icons/Search";
-import "./style.css";
-import SearchBar from "../searchBar"
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -33,35 +32,27 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     fontSize: "large",
   },
-  logo: {
-    position: "absolute",
-    top: "35%",
-    color: "#ffffff",
-  }
 }));
 
-const HomePage = () => {
+const SearchBar = () => {
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.grid}>
-      <Grid item xs={6} md={12} lg={12}>
-      <img
-        id="image"
-        src='https://wallpaperaccess.com/full/1597777.jpg'
-      />
-         <div className="search-container">
-         <Typography className={classes.logo} component="div">
-          <Box fontWeight="fontWeightBold" fontSize="h3.fontSize">
-            THE SHOPPIES
-          </Box>
-        </Typography>
-         <SearchBar />
+        <div className={classes.container}>
+          <div className={classes.search}>
+            <InputBase
+              placeholder="Search movie title"
+              className={classes.input}
+              inputProps={{ "aria-label": "search" }}
+            />
+          </div>
+          <div className={classes.button}>
+            <IconButton type="submit" aria-label="search">
+              <SearchIcon />
+            </IconButton>
+          </div>
         </div>
-
-      </Grid>
-    </Grid>
   );
 };
 
-export default HomePage;
+export default SearchBar;
