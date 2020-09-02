@@ -13,8 +13,6 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.85),
     },
-    // width: "50ch",
-    // height: "48px",
   },
   search: {
     flexDirection: "column",
@@ -29,23 +27,41 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SearchBar = () => {
+  const [title, setTitle] = React.useState("");
+
   const classes = useStyles();
 
+  const handleChange = (value) => {
+    setTitle(value);
+  };
+
+  const handleClick = () => {
+    // let movie = title.split(" ").join("+")
+    // console.log(movie, "IM MOVIE");
+    try {
+      // const results = await `http://www.omdbapi.com/?t=${movie}&apikey=${process.env.REACT_APP_OMD_API}`;
+      // console.log(results, "IM RESULTS");
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
+
   return (
-        <div className={classes.container}>
-          <div className={classes.search}>
-            <InputBase
-              placeholder="Search movie title"
-              className={classes.input}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </div>
-          <div className={classes.button}>
-            <IconButton type="submit" aria-label="search">
-              <SearchIcon />
-            </IconButton>
-          </div>
-        </div>
+    <div className={classes.container}>
+      <div className={classes.search}>
+        <InputBase
+          onChange={handleChange}
+          placeholder="Search movie"
+          className={classes.input}
+          inputProps={{ "aria-label": "search" }}
+        />
+      </div>
+      <div className={classes.button}>
+        <IconButton onClick={handleClick} type="submit" aria-label="search">
+          <SearchIcon />
+        </IconButton>
+      </div>
+    </div>
   );
 };
 

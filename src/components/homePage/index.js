@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Box } from "@material-ui/core";
-// import SearchIcon from "@material-ui/icons/Search";
+import { Grid, Typography } from "@material-ui/core";
 
 import "./style.css";
 import SearchBar from "../searchBar";
@@ -16,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "0px",
     justifyContent: "center",
   },
-  logo: {
+  title: {
     color: "#ffffff",
     fontWeight: "600",
     fontSize: "xxx-large",
@@ -40,9 +39,9 @@ const HomePage = () => {
   return (
     <Grid container className={classes.grid}>
       <Grid item xs={12} md={12} lg={12}>
-        <div id="image">
+        <div className="image">
           <div className={classes.searchContainer}>
-            <Typography className={classes.logo}>
+            <Typography className={classes.title}>
               THE SHOPPIES
             </Typography>
             <Grid container className={classes.searchGrid}>
