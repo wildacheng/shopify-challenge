@@ -8,6 +8,7 @@ import SearchBar from "../searchBar";
 const useStyles = makeStyles((theme) => ({
   grid: {
     width: "100%",
+    height: "100%",
     margin: "0px",
   },
   searchGrid: {
@@ -39,7 +40,7 @@ const HomePage = () => {
   return (
     <Grid container className={classes.grid}>
       <Grid item xs={12} md={12} lg={12}>
-        <div className="image">
+        <div className="backgroundImage">
           <div className={classes.searchContainer}>
             <Typography className={classes.title}>
               THE SHOPPIES

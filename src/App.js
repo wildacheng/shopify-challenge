@@ -4,7 +4,7 @@ import Routes from "./routes";
 
 function App() {
   return (
-    <div>
+    <div id="app">
       <Navbar />
       <Routes />
     </div>

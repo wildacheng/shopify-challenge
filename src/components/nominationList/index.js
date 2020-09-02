@@ -14,6 +14,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 const useStyles = makeStyles((theme) => ({
   grid: {
     width: "100%",
+    height: "100%",
     margin: "0px",
   },
   listGrid: {
@@ -51,7 +52,7 @@ const NominationList = () => {
   return (
     <Grid container className={classes.grid}>
       <Grid item xs={12} md={12} lg={12}>
-        <div className="image">
+        <div className="backgroundImage">
           <div className={classes.listContainer}>
             <Grid container className={classes.listGrid}>
               <Grid item xs={12} md={12} lg={12}>
