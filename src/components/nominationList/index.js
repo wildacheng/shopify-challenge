@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     borderRadius: "10px",
     marginBottom: "20px",
-    position: "relative"
   },
   title: {
     color: "#ffffff",

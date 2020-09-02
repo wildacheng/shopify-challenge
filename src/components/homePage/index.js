@@ -42,11 +42,9 @@ const HomePage = () => {
       <Grid item xs={12} md={12} lg={12}>
         <div className="backgroundImage">
           <div className={classes.searchContainer}>
-            <Typography className={classes.title}>
-              THE SHOPPIES
-            </Typography>
+                <Typography className={classes.title}>THE SHOPPIES</Typography>
             <Grid container className={classes.searchGrid}>
-              <Grid item xs={9} md={12} lg={12}>
+              <Grid item xs={6} md={12} lg={12}>
                 <SearchBar />
               </Grid>
             </Grid>
