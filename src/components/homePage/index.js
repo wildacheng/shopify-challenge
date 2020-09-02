@@ -4,6 +4,7 @@ import { Grid, Typography } from "@material-ui/core";
 
 import "./style.css";
 import SearchBar from "../searchBar";
+import SearchResult from "../searchResult";
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -35,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HomePage = () => {
+  const [results, setResults] = React.useState([]);
+
   const classes = useStyles();
 
   return (
@@ -42,14 +45,15 @@ const HomePage = () => {
       <Grid item xs={12} md={12} lg={12}>
         <div className="backgroundImage">
           <div className={classes.searchContainer}>
-                <Typography className={classes.title}>THE SHOPPIES</Typography>
+            <Typography className={classes.title}>THE SHOPPIES</Typography>
             <Grid container className={classes.searchGrid}>
               <Grid item xs={6} md={12} lg={12}>
-                <SearchBar />
+                <SearchBar results={setResults} />
               </Grid>
             </Grid>
           </div>
         </div>
+        (if (results.length){<SearchResult />})
       </Grid>
     </Grid>
   );
