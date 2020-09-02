@@ -5,10 +5,6 @@ import { IconButton, InputBase } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
-  grid: {
-    width: "100%",
-    margin: "0px",
-  },
   container: {
     display: "flex",
     justifyContent: "flex-end",
@@ -17,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.85),
     },
-    width: "50ch",
-    height: "48px",
+    // width: "50ch",
+    // height: "48px",
   },
   search: {
     flexDirection: "column",
