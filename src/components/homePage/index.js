@@ -1,5 +1,5 @@
 import React from "react";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography, Box } from "@material-ui/core";
 // import SearchIcon from "@material-ui/icons/Search";
 
@@ -18,7 +18,11 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     color: "#ffffff",
-    textShadow: "4px 4px 4px #36454F"
+    fontWeight: "600",
+    fontSize: "xxx-large",
+    lineHeight: "2",
+    letterSpacing: "2px",
+    textShadow: "4px 4px 4px #36454F",
   },
   searchContainer: {
     display: "flex",
@@ -38,10 +42,8 @@ const HomePage = () => {
       <Grid item xs={12} md={12} lg={12}>
         <div id="image">
           <div className={classes.searchContainer}>
-            <Typography className={classes.logo} component="div">
-              <Box fontWeight="fontWeightBold" fontSize="h3.fontSize">
-                THE SHOPPIES
-              </Box>
+            <Typography className={classes.logo}>
+              THE SHOPPIES
             </Typography>
             <Grid container className={classes.searchGrid}>
               <Grid item xs={9} md={12} lg={12}>
