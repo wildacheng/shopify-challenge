@@ -3,77 +3,69 @@ import {
   List,
   ListItem,
   ListItemText,
-  ListItemSecondaryAction,
-  IconButton,
-  Grid,
+  Button,
+  fade,
   Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  grid: {
-    width: "100%",
-    height: "100%",
-    margin: "0px",
+  backgroundContainer: {
+    backgroundColor: fade(theme.palette.common.white, 0.65),
+    borderRadius: "10px",
   },
-  listGrid: {
-    width: "auto",
-    margin: "0px",
+  title: {
+    display: "flex",
     justifyContent: "center",
+    color: "#000000",
+    fontWeight: "600",
+    fontSize: "xx-large",
+    lineHeight: "2",
+    letterSpacing: "2px",
+    textShadow: "4px 4px 4px #FFFFFF",
   },
   demo: {
     backgroundColor: theme.palette.background.paper,
     borderRadius: "10px",
-    marginBottom: "20px",
-  },
-  title: {
-    color: "#ffffff",
-    fontWeight: "600",
-    fontSize: "xxx-large",
-    lineHeight: "2",
-    letterSpacing: "2px",
-    textShadow: "4px 4px 4px #36454F",
+    marginBottom: "10px",
   },
   listContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100%",
-    width: "100%",
+    height: "400px",
+    overflowY: "auto",
+  },
+  listText: {
+    wordBreak: "break-word",
+    width: "80%",
   },
 }));
 
-const SearchResult = () => {
+const SearchResult = ({ movieResults }) => {
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.grid}>
-      <Grid item xs={12} md={12} lg={12}>
-        <div className="backgroundImage">
-          <div className={classes.listContainer}>
-            <Grid container className={classes.listGrid}>
-              <Grid item xs={12} md={12} lg={12}>
-                <Typography className={classes.title}>Result List</Typography>
-                <div className={classes.demo}>
-                  <List dense="true">
-                    <ListItem>
-                      <ListItemText
-                        primary="Movie Title"
-                        secondary={"Release Date"}
-                      />
-                      <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete"></IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  </List>
-                </div>
-              </Grid>
-            </Grid>
-          </div>
-        </div>
-      </Grid>
-    </Grid>
+    <div className={classes.backgroundContainer}>
+      <Typography className={classes.title}>Result List</Typography>
+      <div className={classes.listContainer}>
+        {movieResults.map((movie) => {
+          return (
+            <div className={classes.demo}>
+              <List dense="true">
+                <ListItem>
+                  <ListItemText
+                    className={classes.listText}
+                    primary={movie.Title}
+                    secondary={movie.Year}
+                  />
+                  <Button variant="contained" color="secondary">
+                    Nominate
+                  </Button>
+                </ListItem>
+              </List>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 

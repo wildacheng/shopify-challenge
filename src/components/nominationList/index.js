@@ -103,36 +103,6 @@ const NominationList = () => {
                     </ListItem>
                   </List>
                 </div>
-                <div className={classes.demo}>
-                  <List dense="true">
-                    <ListItem>
-                      <ListItemText
-                        primary="Movie Title"
-                        secondary={"Release Date"}
-                      />
-                      <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  </List>
-                </div>
-                <div className={classes.demo}>
-                  <List dense="true">
-                    <ListItem>
-                      <ListItemText
-                        primary="Movie Title"
-                        secondary={"Release Date"}
-                      />
-                      <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  </List>
-                </div>
               </Grid>
             </Grid>
           </div>

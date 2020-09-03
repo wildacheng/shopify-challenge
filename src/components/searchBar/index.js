@@ -1,5 +1,5 @@
 import React from "react";
-import Axios from "axios"
+import Axios from "axios";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import { IconButton, InputBase } from "@material-ui/core";
 
@@ -27,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchBar = ({setResults}) => {
+const SearchBar = ({ setState }) => {
   const [movie, setMovie] = React.useState("");
-  console.log(movie, 'THIS IS MOVIE')
+  console.log(movie, "THIS IS MOVIE");
 
   const classes = useStyles();
 
@@ -37,13 +37,20 @@ const SearchBar = ({setResults}) => {
     setMovie(event.target.value);
   };
 
-  const handleClick = async() => {
+  const handleClick = async () => {
     try {
-      let movieTitle = movie.split(" ").join("+")
-      const results = await Axios.get(`http://www.omdbapi.com/?s=${movieTitle}&apikey=${process.env.REACT_APP_OMD_API}`);
-      console.log(results, "IM RESULT");
-      // console.log(results.data.Title, "IM Title");
-      // console.log(results.data.Year, "IM Year");
+      if (!movie) {
+        alert("Type in a movie title to search");
+      } else {
+        let movieTitle = movie.split(" ").join("+");
+
+        const results = await Axios.get(
+          `http://www.omdbapi.com/?s=${movieTitle}&apikey=${process.env.REACT_APP_OMD_API}`
+        );
+
+        setState(results.data.Search);
+        console.log(results, "IM RESULT");
+      }
     } catch (error) {
       console.log("Error", error);
     }
@@ -60,9 +67,7 @@ const SearchBar = ({setResults}) => {
         />
       </div>
       <div className={classes.button}>
-        <IconButton
-        onClick={handleClick}
-        type="submit" aria-label="search">
+        <IconButton onClick={handleClick} type="submit" aria-label="search">
           <SearchIcon />
         </IconButton>
       </div>

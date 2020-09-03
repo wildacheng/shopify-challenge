@@ -16,15 +16,19 @@ const theme = createMuiTheme({
     }
   },
   typography: {
-    h2: {
-      color: "#1c313a",
-      fontFamily: "Barlow Semi Condensed,sans-serif",
-    fontWeight: 550,
-    textTransform: "uppercase",
-    fontSize: "1.5rem",
-    lineHeight: "3rem",
-    margin: 0,
-    width: "100%"
+    // h2: {
+    //   color: "#1c313a",
+    //   fontFamily: "Barlow Semi Condensed,sans-serif",
+    // fontWeight: 550,
+    // textTransform: "uppercase",
+    // fontSize: "1.5rem",
+    // lineHeight: "3rem",
+    // margin: 0,
+    // width: "100%"
+    // },
+    MuiListItemText: {
+      fontSize: "15px",
+      fontWeight: "900"
     },
     fontFamily: [
       'Century Gothic Std'
