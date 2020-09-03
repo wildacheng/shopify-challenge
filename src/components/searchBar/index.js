@@ -1,4 +1,5 @@
 import React from "react";
+import Axios from "axios";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import { IconButton, InputBase } from "@material-ui/core";
 
@@ -26,21 +27,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchBar = () => {
-  const [title, setTitle] = React.useState("");
+const SearchBar = ({ setState }) => {
+  const [movie, setMovie] = React.useState("");
+  console.log(movie, "THIS IS MOVIE");
 
   const classes = useStyles();
 
-  const handleChange = (value) => {
-    setTitle(value);
+  const handleChange = (event) => {
+    setMovie(event.target.value);
   };
 
-  const handleClick = () => {
-    // let movie = title.split(" ").join("+")
-    // console.log(movie, "IM MOVIE");
+  const handleClick = async () => {
     try {
-      // const results = await `http://www.omdbapi.com/?t=${movie}&apikey=${process.env.REACT_APP_OMD_API}`;
-      // console.log(results, "IM RESULTS");
+      if (!movie) {
+        alert("Type in a movie title to search");
+      } else {
+        let movieTitle = movie.split(" ").join("+");
+
+        const results = await Axios.get(
+          `http://www.omdbapi.com/?s=${movieTitle}&apikey=${process.env.REACT_APP_OMD_API}`
+        );
+
+        setState(results.data.Search);
+        console.log(results, "IM RESULT");
+      }
     } catch (error) {
       console.log("Error", error);
     }

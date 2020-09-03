@@ -4,6 +4,7 @@ import { Grid, Typography } from "@material-ui/core";
 
 import "./style.css";
 import SearchBar from "../searchBar";
+import SearchResult from "../searchResult";
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   searchGrid: {
     width: "auto",
-    margin: "0px",
+    marginBottom: "10px",
     justifyContent: "center",
   },
   title: {
@@ -29,12 +30,21 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "50%",
+    height: "30%",
     width: "100%",
   },
+  resultContainer: {
+    display: "flex",
+    justifyContent: "center",
+    width: "90%",
+  }
 }));
 
 const HomePage = () => {
+  const [results, setResults] = React.useState([]);
+
+  const movieResults = results;
+
   const classes = useStyles();
 
   return (
@@ -42,13 +52,18 @@ const HomePage = () => {
       <Grid item xs={12} md={12} lg={12}>
         <div className="backgroundImage">
           <div className={classes.searchContainer}>
-                <Typography className={classes.title}>THE SHOPPIES</Typography>
+            <Typography className={classes.title}>THE SHOPPIES</Typography>
             <Grid container className={classes.searchGrid}>
               <Grid item xs={6} md={12} lg={12}>
-                <SearchBar />
+                <SearchBar setState={setResults} />
               </Grid>
             </Grid>
           </div>
+          <Grid container className={classes.resultContainer}>
+            <Grid item xs={9} md={8} lg={6}>
+          {!!results.length && <SearchResult movieResults={movieResults} />}
+          </Grid>
+          </Grid>
         </div>
       </Grid>
     </Grid>
