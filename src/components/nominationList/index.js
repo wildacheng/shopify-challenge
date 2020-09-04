@@ -46,15 +46,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NominationList = () => {
+  const [storedNomination, setNomination] = React.useState({});
+
+  React.useEffect(() => {
+    const nominations = JSON.parse(localStorage.getItem("nomination") || {});
+    setNomination(nominations);
+  }, []);
+
   const classes = useStyles();
 
-  const nominations = Object.values(
-    JSON.parse(localStorage.getItem("nomination"))
-  );
+  const handleClick = (movieTitle) => {
+    let list = {
+      ...storedNomination
+    }
+    delete list[movieTitle];
 
-  console.log(nominations, "HIYO")
-
-  console.log(JSON.parse(localStorage.getItem('nomination')), "IM NOMINATION");
+    setNomination(list);
+    localStorage.setItem("nomination", JSON.stringify(list));
+  };
 
   return (
     <Grid container className={classes.grid}>
@@ -66,7 +75,7 @@ const NominationList = () => {
                 <Typography className={classes.title}>
                   Nomination List
                 </Typography>
-                {nominations.map((movie) => {
+                {Object.values(storedNomination).map((movie) => {
                   return (
                     <div className={classes.demo}>
                       <List dense="true">
@@ -76,7 +85,11 @@ const NominationList = () => {
                             secondary={movie.Year}
                           />
                           <ListItemSecondaryAction>
-                            <IconButton edge="end" aria-label="delete">
+                            <IconButton
+                              onClick={() => handleClick(movie.Title)}
+                              edge="end"
+                              aria-label="delete"
+                            >
                               <DeleteIcon />
                             </IconButton>
                           </ListItemSecondaryAction>
