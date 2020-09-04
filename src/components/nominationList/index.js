@@ -46,7 +46,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NominationList = () => {
+  const [storedNomination, setNomination] = React.useState({});
+
+  React.useEffect(() => {
+    const nominations = JSON.parse(localStorage.getItem("nomination") || {});
+    setNomination(nominations);
+  }, []);
+
   const classes = useStyles();
+
+  const handleClick = (movieTitle) => {
+    let list = {
+      ...storedNomination
+    }
+    delete list[movieTitle];
+
+    setNomination(list);
+    localStorage.setItem("nomination", JSON.stringify(list));
+  };
 
   return (
     <Grid container className={classes.grid}>
@@ -55,54 +72,32 @@ const NominationList = () => {
           <div className={classes.listContainer}>
             <Grid container className={classes.listGrid}>
               <Grid item xs={12} md={12} lg={12}>
-            <Typography className={classes.title}>
-              Nomination List
-            </Typography>
-                <div className={classes.demo}>
-                  <List dense="true">
-                    <ListItem>
-                      <ListItemText
-                        primary="Movie Title"
-                        secondary={"Release Date"}
-                      />
-                      <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  </List>
-                </div>
-                <div className={classes.demo}>
-                  <List dense="true">
-                    <ListItem>
-                      <ListItemText
-                        primary="Movie Title"
-                        secondary={"Release Date"}
-                      />
-                      <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  </List>
-                </div>
-                <div className={classes.demo}>
-                  <List dense="true">
-                    <ListItem>
-                      <ListItemText
-                        primary="Movie Title"
-                        secondary={"Release Date"}
-                      />
-                      <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  </List>
-                </div>
+                <Typography className={classes.title}>
+                  Nomination List
+                </Typography>
+                {Object.values(storedNomination).map((movie) => {
+                  return (
+                    <div className={classes.demo}>
+                      <List dense="true">
+                        <ListItem>
+                          <ListItemText
+                            primary={movie.Title}
+                            secondary={movie.Year}
+                          />
+                          <ListItemSecondaryAction>
+                            <IconButton
+                              onClick={() => handleClick(movie.Title)}
+                              edge="end"
+                              aria-label="delete"
+                            >
+                              <DeleteIcon />
+                            </IconButton>
+                          </ListItemSecondaryAction>
+                        </ListItem>
+                      </List>
+                    </div>
+                  );
+                })}
               </Grid>
             </Grid>
           </div>
