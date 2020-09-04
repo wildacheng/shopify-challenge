@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     width: "90%",
-  }
+  },
 }));
 
 const HomePage = () => {
@@ -61,8 +61,8 @@ const HomePage = () => {
           </div>
           <Grid container className={classes.resultContainer}>
             <Grid item xs={9} md={8} lg={6}>
-          {!!results.length && <SearchResult movieResults={movieResults} />}
-          </Grid>
+              {!!results.length && <SearchResult movieResults={movieResults} />}
+            </Grid>
           </Grid>
         </div>
       </Grid>

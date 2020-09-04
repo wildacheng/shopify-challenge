@@ -48,6 +48,14 @@ const useStyles = makeStyles((theme) => ({
 const NominationList = () => {
   const classes = useStyles();
 
+  const nominations = Object.values(
+    JSON.parse(localStorage.getItem("nomination"))
+  );
+
+  console.log(nominations, "HIYO")
+
+  console.log(JSON.parse(localStorage.getItem('nomination')), "IM NOMINATION");
+
   return (
     <Grid container className={classes.grid}>
       <Grid item xs={12} md={12} lg={12}>
@@ -55,54 +63,28 @@ const NominationList = () => {
           <div className={classes.listContainer}>
             <Grid container className={classes.listGrid}>
               <Grid item xs={12} md={12} lg={12}>
-            <Typography className={classes.title}>
-              Nomination List
-            </Typography>
-                <div className={classes.demo}>
-                  <List dense="true">
-                    <ListItem>
-                      <ListItemText
-                        primary="Movie Title"
-                        secondary={"Release Date"}
-                      />
-                      <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  </List>
-                </div>
-                <div className={classes.demo}>
-                  <List dense="true">
-                    <ListItem>
-                      <ListItemText
-                        primary="Movie Title"
-                        secondary={"Release Date"}
-                      />
-                      <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  </List>
-                </div>
-                <div className={classes.demo}>
-                  <List dense="true">
-                    <ListItem>
-                      <ListItemText
-                        primary="Movie Title"
-                        secondary={"Release Date"}
-                      />
-                      <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  </List>
-                </div>
+                <Typography className={classes.title}>
+                  Nomination List
+                </Typography>
+                {nominations.map((movie) => {
+                  return (
+                    <div className={classes.demo}>
+                      <List dense="true">
+                        <ListItem>
+                          <ListItemText
+                            primary={movie.Title}
+                            secondary={movie.Year}
+                          />
+                          <ListItemSecondaryAction>
+                            <IconButton edge="end" aria-label="delete">
+                              <DeleteIcon />
+                            </IconButton>
+                          </ListItemSecondaryAction>
+                        </ListItem>
+                      </List>
+                    </div>
+                  );
+                })}
               </Grid>
             </Grid>
           </div>

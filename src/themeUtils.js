@@ -26,10 +26,6 @@ const theme = createMuiTheme({
     // margin: 0,
     // width: "100%"
     // },
-    MuiListItemText: {
-      fontSize: "15px",
-      fontWeight: "900"
-    },
     fontFamily: [
       'Century Gothic Std'
     ].join(',',)

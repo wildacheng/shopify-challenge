@@ -40,7 +40,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SearchResult = ({ movieResults }) => {
+  const [storedNomination, setNomination] = React.useState({});
+
+  React.useEffect(() => {
+    const nominations = JSON.parse(localStorage.getItem("nomination"));
+    setNomination(nominations || {});
+  }, []);
+
   const classes = useStyles();
+
+  const handleClick = (movie) => {
+    let nominationList = {
+      ...storedNomination,
+      [movie.Title]: {
+        Title: movie.Title,
+        Year: movie.Year,
+      },
+    };
+
+    setNomination(nominationList);
+    localStorage.setItem("nomination", JSON.stringify(nominationList));
+  };
 
   return (
     <div className={classes.backgroundContainer}>
@@ -56,7 +76,13 @@ const SearchResult = ({ movieResults }) => {
                     primary={movie.Title}
                     secondary={movie.Year}
                   />
-                  <Button variant="contained" color="secondary">
+                  <Button
+                    onClick={() => {
+                      handleClick(movie);
+                    }}
+                    variant="contained"
+                    color="secondary"
+                  >
                     Nominate
                   </Button>
                 </ListItem>

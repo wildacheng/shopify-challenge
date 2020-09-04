@@ -29,8 +29,6 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchBar = ({ setState }) => {
   const [movie, setMovie] = React.useState("");
-  console.log(movie, "THIS IS MOVIE");
-
   const classes = useStyles();
 
   const handleChange = (event) => {
@@ -49,7 +47,6 @@ const SearchBar = ({ setState }) => {
         );
 
         setState(results.data.Search);
-        console.log(results, "IM RESULT");
       }
     } catch (error) {
       console.log("Error", error);
