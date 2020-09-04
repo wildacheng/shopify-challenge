@@ -43,7 +43,7 @@ const SearchBar = ({ setState }) => {
         let movieTitle = movie.split(" ").join("+");
 
         const results = await Axios.get(
-          `http://www.omdbapi.com/?s=${movieTitle}&apikey=${process.env.REACT_APP_OMD_API}`
+          `https://www.omdbapi.com/?s=${movieTitle}&apikey=${process.env.REACT_APP_OMD_API}`
         );
 
         setState(results.data.Search);
