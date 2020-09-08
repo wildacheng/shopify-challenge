@@ -36,16 +36,21 @@ const SearchBar = ({ setState }) => {
   };
 
   const handleClick = async () => {
+    if (!movie) {
+      alert("Please type in a movie title to search");
+      return
+    }
+
     try {
-      if (!movie) {
-        alert("Type in a movie title to search");
+      let movieTitle = movie.split(" ").join("+");
+
+      const results = await Axios.get(
+        `https://www.omdbapi.com/?s=${movieTitle}&apikey=${process.env.REACT_APP_OMD_API}`
+      );
+
+      if (results.data.Response === "False"){
+        alert("Please refine your search");
       } else {
-        let movieTitle = movie.split(" ").join("+");
-
-        const results = await Axios.get(
-          `https://www.omdbapi.com/?s=${movieTitle}&apikey=${process.env.REACT_APP_OMD_API}`
-        );
-
         setState(results.data.Search);
       }
     } catch (error) {

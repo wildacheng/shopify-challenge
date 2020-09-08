@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, fade } from "@material-ui/core";
 
 import "./style.css";
 import SearchBar from "../searchBar";
@@ -17,6 +17,12 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "10px",
     justifyContent: "center",
   },
+  titleContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginBottom: "10px"
+  },
   title: {
     color: "#ffffff",
     fontWeight: "600",
@@ -25,12 +31,18 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "2px",
     textShadow: "4px 4px 4px #36454F",
   },
+  subTitle: {
+    color: "#ffffff",
+    fontWeight: "600",
+    fontSize: "large",
+    textShadow: "4px 4px 4px #000000",
+  },
   searchContainer: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
     justifyContent: "center",
-    height: "30%",
+    alignItems: "center",
+    height: "50%",
     width: "100%",
   },
   resultContainer: {
@@ -49,10 +61,13 @@ const HomePage = () => {
 
   return (
     <Grid container className={classes.grid}>
-      <Grid item xs={12} md={12} lg={12}>
+      <Grid item xs={12} sm={12} md={12} lg={12}>
         <div className="backgroundImage">
           <div className={classes.searchContainer}>
+            <div className={classes.titleContainer}>
             <Typography className={classes.title}>THE SHOPPIES</Typography>
+            <Typography className={classes.subTitle}>Pick your top 5 nominations!</Typography>
+            </div>
             <Grid container className={classes.searchGrid}>
               <Grid item xs={6} md={12} lg={12}>
                 <SearchBar setState={setResults} />

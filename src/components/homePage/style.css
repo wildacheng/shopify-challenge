@@ -1,11 +1,22 @@
 .backgroundImage {
-  background-image: url('https://wallpaperaccess.com/full/1597777.jpg');
+  background-image: url('../../img/background.jpg');
   background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
   width: 100%;
-  position: relative;
 }
 
+
+@media only screen and (max-width: 500px) {
+  .backgroundImage {
+      background-image: url("../../img/small_background.jpg");
+  }
+}
+
+  /* @media only screen and (max-width: 900px) {
+    .backgroundImage {
+        background-image: url("../../img/medium_background.jpg");
+    }
+} */

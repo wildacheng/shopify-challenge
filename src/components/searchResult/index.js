@@ -57,10 +57,17 @@ const SearchResult = ({ movieResults }) => {
         Year: movie.Year,
       },
     };
-
     setNomination(nominationList);
     localStorage.setItem("nomination", JSON.stringify(nominationList));
   };
+
+  const handleDisable = (movie) => {
+    if (storedNomination[movie]) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   return (
     <div className={classes.backgroundContainer}>
@@ -77,6 +84,7 @@ const SearchResult = ({ movieResults }) => {
                     secondary={movie.Year}
                   />
                   <Button
+                  disabled={handleDisable(movie.Title)? "true" : ""}
                     onClick={() => {
                       handleClick(movie);
                     }}
