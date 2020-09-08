@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "0px",
   },
   listGrid: {
-    width: "auto",
-    margin: "0px",
+    display: "flex",
     justifyContent: "center",
+    width: "90%",
   },
   demo: {
     backgroundColor: theme.palette.background.paper,
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "100%",
+    height: "40%",
     width: "100%",
   },
 }));
@@ -57,8 +57,8 @@ const NominationList = () => {
 
   const handleClick = (movieTitle) => {
     let list = {
-      ...storedNomination
-    }
+      ...storedNomination,
+    };
     delete list[movieTitle];
 
     setNomination(list);
@@ -70,37 +70,35 @@ const NominationList = () => {
       <Grid item xs={12} md={12} lg={12}>
         <div className="backgroundImage">
           <div className={classes.listContainer}>
-            <Grid container className={classes.listGrid}>
-              <Grid item xs={12} md={12} lg={12}>
-                <Typography className={classes.title}>
-                  Nomination List
-                </Typography>
-                {Object.values(storedNomination).map((movie) => {
-                  return (
-                    <div className={classes.demo}>
-                      <List dense="true">
-                        <ListItem>
-                          <ListItemText
-                            primary={movie.Title}
-                            secondary={movie.Year}
-                          />
-                          <ListItemSecondaryAction>
-                            <IconButton
-                              onClick={() => handleClick(movie.Title)}
-                              edge="end"
-                              aria-label="delete"
-                            >
-                              <DeleteIcon />
-                            </IconButton>
-                          </ListItemSecondaryAction>
-                        </ListItem>
-                      </List>
-                    </div>
-                  );
-                })}
-              </Grid>
-            </Grid>
+            <Typography className={classes.title}>Nomination List</Typography>
           </div>
+          <Grid container className={classes.listGrid}>
+            <Grid item xs={9} md={6} lg={4}>
+              {Object.values(storedNomination).map((movie) => {
+                return (
+                  <div className={classes.demo}>
+                    <List dense="true">
+                      <ListItem>
+                        <ListItemText
+                          primary={movie.Title}
+                          secondary={movie.Year}
+                        />
+                        <ListItemSecondaryAction>
+                          <IconButton
+                            onClick={() => handleClick(movie.Title)}
+                            edge="end"
+                            aria-label="delete"
+                          >
+                            <DeleteIcon />
+                          </IconButton>
+                        </ListItemSecondaryAction>
+                      </ListItem>
+                    </List>
+                  </div>
+                );
+              })}
+            </Grid>
+          </Grid>
         </div>
       </Grid>
     </Grid>
