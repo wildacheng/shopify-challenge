@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     height: "50%",
     width: "100%",
+    marginTop: "10px"
   },
   resultContainer: {
     display: "flex",
