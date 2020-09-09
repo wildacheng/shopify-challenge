@@ -1,5 +1,5 @@
 .backgroundImage {
-  background-image: url('../../img/background.jpg');
+  background-image: url("../../img/mobile_background.jpg");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -9,20 +9,25 @@
 }
 
 
-
-@media only screen and (max-width: 375px) {
+@media only screen and (min-width: 950px) {
   .backgroundImage {
-    background-image: url("../../img/mobile_background.jpg");
+    background-image: url('../../img/background.jpg');
   }
 }
 
-@media only screen and (max-width: 500px) {
+/* @media only screen and (max-width: 375px) {
+  .backgroundImage {
+    background-image: url("../../img/mobile_background.jpg");
+  }
+} */
+
+@media only screen and (min-width: 400px) {
   .backgroundImage {
       background-image: url("../../img/small_background.jpg");
   }
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (min-width: 500px) {
   .backgroundImage {
       background-image: url("../../img/medium_background.jpg");
   }
